@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.ck.ck-content:not(.ck-comment__input *) {
+    height: 50vh;
+    overflow-y: auto;
+}
