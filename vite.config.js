@@ -15,7 +15,6 @@ export default defineConfig({
         hmr: {
             host: "notebook-production.up.railway.app",
         },
-        ,
         port: 3001
     },
 });
