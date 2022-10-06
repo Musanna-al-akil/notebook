@@ -10,10 +10,6 @@ export default defineConfig({
         }),
         react(),
     ],
-    server: {
-        https: true,
-        hmr: {
-            host: "notebook-production.up.railway.app",
-        },
-    },
+    
+    
 });
