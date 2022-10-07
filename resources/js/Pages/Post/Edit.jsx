@@ -1,6 +1,6 @@
 import React from "react";
 import { Inertia } from "@inertiajs/inertia";
-import { InertiaLink, usePage, useForm } from "@inertiajs/inertia-react";
+import { InertiaLink, usePage, useForm, Head } from "@inertiajs/inertia-react";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
 const Edit = (props) => {
@@ -23,6 +23,7 @@ const Edit = (props) => {
 
     return (
         <AuthenticatedLayout auth={props.auth} errors={props.errors}>
+            <Head title="Edit Post" />
             <div className="mt-20">
                 <div className="container flex flex-col justify-center mx-auto">
                     <div>

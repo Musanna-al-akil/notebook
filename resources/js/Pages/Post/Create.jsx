@@ -1,10 +1,9 @@
 import React from "react";
 import { Inertia } from "@inertiajs/inertia";
-import { InertiaLink, useForm } from "@inertiajs/inertia-react";
+import { InertiaLink, useForm, Head } from "@inertiajs/inertia-react";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import BalloonEditor from "@ckeditor/ckeditor5-build-balloon";
-
 const Create = (props) => {
     const { data, setData, errors, post } = useForm({
         title: "",
@@ -18,6 +17,7 @@ const Create = (props) => {
 
     return (
         <AuthenticatedLayout auth={props.auth} errors={props.errors}>
+            <Head title="Create Post" />
             <div className="mt-20">
                 <div className="container flex flex-col justify-center mx-auto">
                     <div>
@@ -61,20 +61,14 @@ const Create = (props) => {
                                         editor={BalloonEditor}
                                         onReady={(editor) => {
                                             // You can store the "editor" and use when it is needed.
-                                            console.log(
-                                                "Editor is ready to use!",
-                                                editor
-                                            );
                                         }}
                                         onChange={(event, editor) => {
                                             const data = editor.getData();
                                             setData("description", data);
                                         }}
                                         onBlur={(event, editor) => {
-                                            console.log("Blur.", editor);
                                         }}
                                         onFocusOut={(event, editor) => {
-                                            console.log("Focus.", editor);
                                         }}
                                     />
                                     <span className="text-red-600">

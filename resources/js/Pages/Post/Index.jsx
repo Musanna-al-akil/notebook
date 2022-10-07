@@ -1,6 +1,6 @@
 import React from "react";
 import { Inertia } from "@inertiajs/inertia";
-import { InertiaLink, usePage } from "@inertiajs/inertia-react";
+import { InertiaLink, usePage, Head } from "@inertiajs/inertia-react";
 
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
@@ -13,6 +13,7 @@ const Index = (props) => {
     }
     return (
         <AuthenticatedLayout auth={props.auth} errors={props.errors}>
+            <Head title="View Post" />
             <div>
                 <div className="container mx-auto mt-6">
                     <h1 className="mb-8 text-3xl font-bold text-center">
