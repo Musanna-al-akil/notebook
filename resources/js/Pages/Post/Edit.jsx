@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { Inertia } from "@inertiajs/inertia";
 import { InertiaLink, usePage, useForm } from "@inertiajs/inertia-react";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import { useEffect } from "react";
 
 const Edit = (props) => {
     const { post } = usePage().props;
@@ -16,9 +15,10 @@ const Edit = (props) => {
         put(route("posts.update", post.id));
     }
     function destroy() {
-        if (confirm("Are you sure you want to delete this user?")) {
-            Inertia.delete(route("posts.destroy", post.id));
-        }
+        Inertia.delete(route("posts.destroy", post.id));
+    }
+    function stripHTML(myString) {
+        return myString.replace(/(<([^>]+)>)/gi, "");
     }
 
     return (
@@ -67,7 +67,7 @@ const Edit = (props) => {
                                         label="description"
                                         name="description"
                                         errors={errors.description}
-                                        value={data.description}
+                                        value={stripHTML(data.description)}
                                         onChange={(e) =>
                                             setData(
                                                 "description",
